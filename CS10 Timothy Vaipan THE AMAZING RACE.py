@@ -911,6 +911,7 @@ def passes_show():
     Fy = 70
     Sx = 200
     Sy = 170
+    
     FLx = 100
     FLy = 120
     SLx = 150
@@ -944,191 +945,57 @@ def passes_show():
     canvas.create_text(500, 2370, text = 'Bag Challenge', font = customFont)
     canvas.create_text(500, 2520, text = 'Kayak Challenge', font = customFont)
     
-    
-    
-    
-    '''#SCUBA
-    if win.scuba_pass != True:
-        canvas.create_rectangle(100, 70, 200, 170, width = 7)
-        canvas.create_line(100, 120, 150, 170, 220, 20, fil = '#b2b2b2', width = 15)
-    
-    else:
-        canvas.create_rectangle(100, 70, 200, 170, width = 7)
+    #SCUBA
+    if win.scuba_pass == True:
         canvas.create_line(100, 120, 150, 170, 220, 20, fil = 'green', width = 15)
-        
     #COCO
-    if win.coco_pass != True:
-        canvas.create_rectangle(100, 200, 200, 300, width = 7)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        canvas.create_rectangle(100, 200, 200, 300, width = 7)
+    if win.coco_pass == True:
         canvas.create_line(100, 350, 150, 400, 220, 250, fil = 'green', width = 15)
-     
     #DANCE   
-    if win.dance_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-    
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.dance_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #BOOK   
-    if win.book_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.book_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #CASTLE
-    if win.castle_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.castle_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #COFFEE
-    if win.coffee_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
+    if win.coffee_pass == True:
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)  
     #FISH
-    if win.fish_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.fish_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #HANG
-    if win.hang_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.hang_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #TICKET
-    if win.ticket_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
+    if win.ticket_pass == True:
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)   
     #LAVA
-    if win.Lava_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.Lava_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #SAND
-    if win.sand_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.sand_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #TIKI
-    if win.tiki_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.tiki_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #SURF
-    if win.surf_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
+    if win.surf_pass == True:
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15) 
     #SNOW
-    if win.snow_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.snow_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #FIREWORKS
-    if win.fireworks_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
+    if win.fireworks_pass == True:
         canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-         
     #BAG
-    if win.bag_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-        
+    if win.bag_pass == True:
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15) 
     #KAYAK
-    if win.Kayak_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
-        
-    else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)'''
+    if win.Kayak_pass == True:
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
         
 scrollbar = Scrollbar(side_challenges, command = canvas.yview)
 scrollbar.grid(row = 0, column = 2, rowspan = 2, sticky = Tkinter.N + Tkinter.S)
