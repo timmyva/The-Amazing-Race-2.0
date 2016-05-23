@@ -820,8 +820,8 @@ def Win():
     print
     print "You run across the streets of Pearl City, Hawaii on Oahu Island. You are not far behind another team. But these streets are so confusing. The other team stops and asks for directions, then rushes off into the night. Them asking for directions got you both a few seconds closer to them. You keep on running, hoping you are leading yourselves in the right direction. You and your partner rush past the other team, who are confusing of where to go at an intersection. You just keep running. Finally you see it. There is the Harbor. You run to the loading dock. You can see the people from The Amazing Race over the sunken ship in the harbor. You run up to the gate, but the old man there says, ‘Sorry, no passage without paying the fee. It’s $2.15 per person, $1.10 per child, and $3.45 per pet.’ You feel greatly pleased with yourself as you remember you kept the spare change from the kayaks. You hurriedly pay the man $4.30 and rush to the boats. There are many rowboats, each with a clue on the seat. You open one. ‘A final test of power, strength, and determination: work together to reach the end.’ You both hop into a rowboat, but so do another other two teams. Your partner is on your left, and has that oar, while you hold the right. You both row to the USS Arizona Memorial in the harbor."
     print
-    end_time = time.time()
     global end_time
+    end_time = time.time()
     elapsed_time = end_time - start_time
     print "Good job %s! You made it to the end." %name
     print "You took %d seconds to get to the end." %elapsed_time
@@ -901,225 +901,241 @@ def load():
 
 side_challenges = Tkinter.Tk()
 side_challenges.title('THE AMAZING RACE - SIDE CHALLENGES')
-canvas = Tkinter.Canvas(side_challenges, height = 1000, width = 1590, relief = Tkinter.RAISED, bg = 'white')
+canvas = Tkinter.Canvas(side_challenges, height = 500, width = 1303, relief = Tkinter.RAISED, bg = 'white')
+canvas.grid(row = 0, column = 1)
+customFont = tkFont.Font(family = 'Arial', size = 40)
 
 def passes_show():
-    #SCUBA
+    shown_passes = 0
+    Fx = 100
+    Fy = 70
+    Sx = 200
+    Sy = 170
+    FLx = 100
+    FLy = 120
+    SLx = 150
+    SLy = 170
+    TLx = 220
+    TLy = 20
+    while shown_passes < 17:
+        canvas.create_rectangle(Fx, Fy, Sx, Sy, width = 7)
+        canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = '#b2b2b2', width = 15)        
+        Fy += 150
+        Sy += 150
+        FLy += 150
+        SLy += 150
+        TLy += 150
+        shown_passes += 1
+    canvas.create_text(500, 120, text = 'Scuba Challenge', font = customFont)
+    canvas.create_text(500, 270, text = 'Coconut Challenge', font = customFont)
+    canvas.create_text(500, 420, text = 'Dance Challenge', font = customFont)
+    canvas.create_text(500, 570, text = 'Book Challenge', font = customFont)     
+    canvas.create_text(500, 720, text = 'Sandcastle Challenge', font = customFont)                
+    canvas.create_text(500, 870, text = 'Coffee Challenge', font = customFont)                        
+    canvas.create_text(500, 1020, text = 'Fishing Challenge', font = customFont)
+    canvas.create_text(500, 1170, text = 'Hangman Challenge', font = customFont)
+    canvas.create_text(500, 1320, text = 'Ticket Challenge', font = customFont)
+    canvas.create_text(500, 1470, text = 'Lava Challenge', font = customFont)
+    canvas.create_text(500, 1620, text = 'Sand Challenge', font = customFont)
+    canvas.create_text(500, 1770, text = 'Tiki Tower Challenge', font = customFont)
+    canvas.create_text(500, 1920, text = 'Surf Challenge', font = customFont)
+    canvas.create_text(500, 2070, text = 'Snowboard Challenge', font = customFont)
+    canvas.create_text(500, 2220, text = 'Fireworks Challenge', font = customFont)
+    canvas.create_text(500, 2370, text = 'Bag Challenge', font = customFont)
+    canvas.create_text(500, 2520, text = 'Kayak Challenge', font = customFont)
+    
+    
+    
+    
+    '''#SCUBA
     if win.scuba_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_rectangle(100, 70, 200, 170, width = 7)
+        canvas.create_line(100, 120, 150, 170, 220, 20, fil = '#b2b2b2', width = 15)
+    
     else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_rectangle(100, 70, 200, 170, width = 7)
+        canvas.create_line(100, 120, 150, 170, 220, 20, fil = 'green', width = 15)
         
-    #COCO    
+    #COCO
     if win.coco_pass != True:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_rectangle(100, 200, 200, 300, width = 7)
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
-        for i in range(5):
-            canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_rectangle(100, 200, 200, 300, width = 7)
+        canvas.create_line(100, 350, 150, 400, 220, 250, fil = 'green', width = 15)
      
     #DANCE   
     if win.dance_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+    
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #BOOK   
     if win.book_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #CASTLE
     if win.castle_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #COFFEE
     if win.coffee_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #FISH
     if win.fish_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #HANG
     if win.hang_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #TICKET
     if win.ticket_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #LAVA
     if win.Lava_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #SAND
     if win.sand_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #TIKI
     if win.tiki_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #SURF
     if win.surf_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #SNOW
     if win.snow_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #FIREWORKS
     if win.fireworks_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
          
     #BAG
     if win.bag_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
         
     #KAYAK
     if win.Kayak_pass != True:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = '#b2b2b2', width = 15)
+        
     else:
         for i in range(5):
             canvas.create_rectangle(100+i, 200-i, 200+i, 300+i)
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 20)
-        canvas.create_text(400, 250, text = 'Try this!', font = ('Arial', -100))     
+        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)'''
         
-customFont = tkFont.Font(family = 'Arial', size = 30)
-editor = Tkinter.Text(side_challenges, width = 60, height = 5, font = customFont)
-editor.grid(row = 0, column = 0)
-
-scrollbar = Scrollbar(side_challenges)
-scrollbar.grid(row = 0, column = 1, columnspan = 2, sticky = Tkinter.N + Tkinter.S)
+scrollbar = Scrollbar(side_challenges, command = canvas.yview)
+scrollbar.grid(row = 0, column = 2, rowspan = 2, sticky = Tkinter.N + Tkinter.S)
 
 #Adds text to the box
-editor.insert(Tkinter.END, passes_show)
-editor.see(Tkinter.END)
-#Disable changing the text box
-editor.config(state = Tkinter.DISABLED)
+button = Tkinter.Button(side_challenges, text='Update Completed Side Challenges', command = passes_show)
+button.grid(row = 2, column = 1)
 
 side_challenges.mainloop()
 	
