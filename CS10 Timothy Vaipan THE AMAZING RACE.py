@@ -37,9 +37,12 @@ Amazing_Race_GUI = Tkinter.Tk()
 Amazing_Race_GUI.title('THE AMAZING RACE')
 canvas = Tkinter.Canvas(Amazing_Race_GUI, height = 600, width = 1306, relief = Tkinter.RAISED, bg = 'white')
 canvas.grid(row = 0, column = 1)
+#fonts
+customFont = tkFont.Font(family = 'Arial', size = 40)
 intro_font = tkFont.Font(family = 'Arial', size = 40)
 intro_font2 = tkFont.Font(family = 'Arial', size = 50)
 intro_font3 = tkFont.Font(family = 'Arial', size = 20)
+name_font = tkFont.Font(family = 'Arial', size = 50)
 
 customFont = tkFont.Font(family = 'Arial', size = 40)   
 
@@ -62,21 +65,29 @@ canvas.create_text(653, 360, text = intro_message3, font = intro_font3)
 canvas.create_text(653, 390, text = intro_message4, font = intro_font3)
 canvas.create_text(653, 420, text = intro_message5, font = intro_font3)
 
+def name():
+    global name_editor
+    canvas.delete("all")
+    canvas.create_text(653, 150, text = 'What is your name?', font = name_font)
+    name_editor = Tkinter.Text(width = 48, height = 2, font = customFont)
+    name_editor.grid(row = 1, column = 1)
+
+next_button = Tkinter.Button(Amazing_Race_GUI, text='NEXT', command = name)
+next_button.grid(row = 2, column = 1)
+
+directions = "DIRECTIONS: There is a list of possible directions underneath each description. Type a direction in, such as 'north', 'south', 'east', 'west', or 'next'. Follow the commands and clues given in the descriptions and in the clues to reach the end. To see what challenges you have and have not completed, type in 'checklist' to see a list of challenges. If you type in '?', then you shall see these directions agian."
+def directions():
+    canvas.delete("all")
+    canvas.create_text(653, 150, text = directions, font = name_font)
+    
+next_button = Tkinter.Button(Amazing_Race_GUI, text = 'NEXT', command = directions)
+next_button.grid(row = 2, column = 1)
 
 Amazing_Race_GUI.mainloop()
 
 
-#Name for later
-global name
-name = raw_input("What is your name? >")
-if name in ['q', 'quit', 'exit']:
-    print "GAME OVER"
-    sys.exit(0)
-    
-print 
-directions = "DIRECTIONS: There is a list of possible directions underneath each description. Type a direction in, such as 'north', 'south', 'east', 'west', or 'next'. Follow the commands and clues given in the descriptions and in the clues to reach the end. To see what challenges you have and have not completed, type in 'checklist' to see a list of challenges. If you type in '?', then you shall see these directions agian."
-print directions
-print
+
+ 
 
 #1 SCUBA CHALLENGE
 def Scuba(): #Intro
@@ -909,7 +920,6 @@ Pearl_Harbour = Room('Pearl Harbour',          None, None, None, None, None,    
 
 node = Intro  #Beggining Room       
 
-
 def save():
     global name, start_time, win, node
     with open('savegame.dat', 'wb') as f:
@@ -922,11 +932,10 @@ def load():
         name, start_time, win, node = pickle.load(f)
     print "Game succsessfully loaded"
 
-side_challenges = Tkinter.Tk()
+'''side_challenges = Tkinter.Tk()
 side_challenges.title('THE AMAZING RACE - SIDE CHALLENGES')
 canvas = Tkinter.Canvas(side_challenges, height = 500, width = 1303, relief = Tkinter.RAISED, bg = 'white')
 canvas.grid(row = 0, column = 1)
-customFont = tkFont.Font(family = 'Arial', size = 40)
 
 def passes_show():
     boxes = 0
@@ -1248,10 +1257,10 @@ scrollbar.grid(row = 0, column = 2, rowspan = 2, sticky = Tkinter.N + Tkinter.S)
 
 #Adds text to the box
 button = Tkinter.Button(side_challenges, text='Update Completed Side Challenges', command = passes_show)
-button.grid(row = 2, column = 1)
+button.grid(row = 2, column = 1)'''
 
-def GUI_passes():
-    side_challenges.mainloop()	
+#def GUI_passes():
+#    side_challenges.mainloop()	
 
 while True:
     print
