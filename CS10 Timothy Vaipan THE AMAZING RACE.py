@@ -32,15 +32,39 @@ class Win_Conditions():
         self.fireworks_pass = False
         self.bag_pass = False
         self.Kayak_pass = False
-        
+
+Amazing_Race_GUI = Tkinter.Tk()
+Amazing_Race_GUI.title('THE AMAZING RACE')
+canvas = Tkinter.Canvas(Amazing_Race_GUI, height = 600, width = 1306, relief = Tkinter.RAISED, bg = 'white')
+canvas.grid(row = 0, column = 1)
+intro_font = tkFont.Font(family = 'Arial', size = 40)
+intro_font2 = tkFont.Font(family = 'Arial', size = 50)
+intro_font3 = tkFont.Font(family = 'Arial', size = 20)
+
+customFont = tkFont.Font(family = 'Arial', size = 40)   
+
+              
 win = Win_Conditions()
 start_time = time.time()
 
 #INTRO
-print "WELCOME TO \x1B[3mTHE AMAZING RACE!!!\x1B[23m"
-print
-print "This is only a game. It is an Amazing game, but it is still just a game. Do not go crazy about it or break the laptop. All people, sitations, and all other things in general that you think is like real life, is not real life. It is coincidental. It is not real. Good luck, you will need it."
-print
+intro_message = "This is only a game. It is an Amazing game, but it is still just a game."
+intro_message2 = "Do not go crazy about it or break the laptop." 
+intro_message3 = "All people, sitations, and all other things in general that you think is like real life, is not real life."
+intro_message4 = "It is coincidental. It is not real."
+intro_message5 = "Good luck, you will need it."
+
+canvas.create_text(653, 120, text = 'WELCOME TO', font = intro_font)
+canvas.create_text(653, 180, text = 'THE AMAZING RACE!!!', font = intro_font2)
+canvas.create_text(653, 300, text = intro_message, font = intro_font3)
+canvas.create_text(653, 330, text = intro_message2, font = intro_font3)
+canvas.create_text(653, 360, text = intro_message3, font = intro_font3)
+canvas.create_text(653, 390, text = intro_message4, font = intro_font3)
+canvas.create_text(653, 420, text = intro_message5, font = intro_font3)
+
+
+Amazing_Race_GUI.mainloop()
+
 
 #Name for later
 global name
@@ -50,7 +74,7 @@ if name in ['q', 'quit', 'exit']:
     sys.exit(0)
     
 print 
-directions = "DIRECTIONS: There is a list of possible directions underneath each description. Type a direction in, such as 'north', 'south', 'east', 'west', or 'next'. Follow the commands and clues given in the descriptions and in the clues to reach the end. If you type in '?', then you shall see these directions agian."
+directions = "DIRECTIONS: There is a list of possible directions underneath each description. Type a direction in, such as 'north', 'south', 'east', 'west', or 'next'. Follow the commands and clues given in the descriptions and in the clues to reach the end. To see what challenges you have and have not completed, type in 'checklist' to see a list of challenges. If you type in '?', then you shall see these directions agian."
 print directions
 print
 
@@ -898,7 +922,6 @@ def load():
         name, start_time, win, node = pickle.load(f)
     print "Game succsessfully loaded"
 
-
 side_challenges = Tkinter.Tk()
 side_challenges.title('THE AMAZING RACE - SIDE CHALLENGES')
 canvas = Tkinter.Canvas(side_challenges, height = 500, width = 1303, relief = Tkinter.RAISED, bg = 'white')
@@ -906,27 +929,9 @@ canvas.grid(row = 0, column = 1)
 customFont = tkFont.Font(family = 'Arial', size = 40)
 
 def passes_show():
-    shown_passes = 0
-    Fx = 100
-    Fy = 70
-    Sx = 200
-    Sy = 170
-    
-    FLx = 100
-    FLy = 120
-    SLx = 150
-    SLy = 170
-    TLx = 220
-    TLy = 20
-    while shown_passes < 17:
-        canvas.create_rectangle(Fx, Fy, Sx, Sy, width = 7)
-        canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = '#b2b2b2', width = 15)        
-        Fy += 150
-        Sy += 150
-        FLy += 150
-        SLy += 150
-        TLy += 150
-        shown_passes += 1
+    boxes = 0
+    checks = 0
+    #text
     canvas.create_text(500, 120, text = 'Scuba Challenge', font = customFont)
     canvas.create_text(500, 270, text = 'Coconut Challenge', font = customFont)
     canvas.create_text(500, 420, text = 'Dance Challenge', font = customFont)
@@ -944,58 +949,299 @@ def passes_show():
     canvas.create_text(500, 2220, text = 'Fireworks Challenge', font = customFont)
     canvas.create_text(500, 2370, text = 'Bag Challenge', font = customFont)
     canvas.create_text(500, 2520, text = 'Kayak Challenge', font = customFont)
-    
-    #SCUBA
-    if win.scuba_pass == True:
-        canvas.create_line(100, 120, 150, 170, 220, 20, fil = 'green', width = 15)
-    #COCO
-    if win.coco_pass == True:
-        canvas.create_line(100, 350, 150, 400, 220, 250, fil = 'green', width = 15)
-    #DANCE   
-    if win.dance_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #BOOK   
-    if win.book_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #CASTLE
-    if win.castle_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #COFFEE
-    if win.coffee_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)  
-    #FISH
-    if win.fish_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #HANG
-    if win.hang_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #TICKET
-    if win.ticket_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)   
-    #LAVA
-    if win.Lava_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #SAND
-    if win.sand_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #TIKI
-    if win.tiki_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #SURF
-    if win.surf_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15) 
-    #SNOW
-    if win.snow_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #FIREWORKS
-    if win.fireworks_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
-    #BAG
-    if win.bag_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15) 
-    #KAYAK
-    if win.Kayak_pass == True:
-        canvas.create_line(100, 250, 150, 300, 220, 150, fil = 'green', width = 15)
+    #start box coordinates
+    Fx = 100
+    Fy = 70
+    Sx = 200
+    Sy = 170
+    #start check coordinates
+    FLx = 100
+    FLy = 120
+    SLx = 150
+    SLy = 170
+    TLx = 220
+    TLy = 20
+    #rectangle created
+    while boxes < 17:
+        canvas.create_rectangle(Fx, Fy, Sx, Sy, width = 7)
+        Fy += 150
+        Sy += 150
+        boxes += 1
+    while checks < 17:
+        #grey fill
+        fill='#b2b2b2'
+        
+        #SCUBA
+        if win.scuba_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #COCO
+        if win.coco_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #DANCE   
+        if win.dance_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #BOOK   
+        if win.book_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #CASTLE
+        if win.castle_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #COFFEE
+        if win.coffee_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #FISH
+        if win.fish_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #HANG
+        if win.hang_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #TICKET
+        if win.ticket_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #LAVA
+        if win.Lava_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #SAND
+        if win.sand_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #TIKI
+        if win.tiki_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #SURF
+        if win.surf_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #SNOW
+        if win.snow_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #FIREWORKS
+        if win.fireworks_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #BAG
+        if win.bag_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+            
+        #KAYAK
+        if win.Kayak_pass == True:
+            fill = 'green'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
+        else:
+            fill='#b2b2b2'
+            canvas.create_line(FLx, FLy, SLx, SLy, TLx, TLy, fil = fill, width = 15)
+            FLy += 150
+            SLy += 150
+            TLy += 150 
+            checks += 1
         
 scrollbar = Scrollbar(side_challenges, command = canvas.yview)
 scrollbar.grid(row = 0, column = 2, rowspan = 2, sticky = Tkinter.N + Tkinter.S)
@@ -1004,8 +1250,9 @@ scrollbar.grid(row = 0, column = 2, rowspan = 2, sticky = Tkinter.N + Tkinter.S)
 button = Tkinter.Button(side_challenges, text='Update Completed Side Challenges', command = passes_show)
 button.grid(row = 2, column = 1)
 
-side_challenges.mainloop()
-	
+def GUI_passes():
+    side_challenges.mainloop()	
+
 while True:
     print
     if end.end == True:
@@ -1035,6 +1282,8 @@ while True:
         save()
     elif command in ["load"]:
         load()
+    if command in ["checklist"]:
+        GUI_passes()
     elif command in 'next':  #if command starts a function
         try:
             function = node.next
